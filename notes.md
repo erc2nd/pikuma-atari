@@ -1,8 +1,8 @@
-LDA     ; load the A register
+LDA     ; load the A register with value specified
 LDX
 LDY
 
-STA     ; store the A register
+STA     ; stores value in reg A into memory location specified
 STX
 STY
 
@@ -36,4 +36,16 @@ BVS     ;           overflow set            V == 1
 Loop:           ; "alias" for a position in code
     DEY         ; y--
     BNE Loop    ; repeat until y==0
+
+# ADDRESSING MODES
+
+LDA #80     ; Immediate Mode
+            ; loads A reg with literal decimal value 80
+            ; opcode A9
+
+LDA $80     ; Absolute (Zero Page) Mode
+            ; loads A reg with whatever value is inside memory address 80
+            ; opcode A5
+
+LDA #$80    ; loads A reg with literal hexadecimal value 80 (==128 decimal)
 
