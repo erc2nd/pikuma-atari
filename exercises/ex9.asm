@@ -8,15 +8,12 @@
     org $F000
 
 Start:
-    lda #1 ; Initialize the A register with the decimal value 1
+    lda #1  ; Initialize the A register with the decimal value 1
 Loop:
-    ; Increment A
-    ; Compare the value in A with the decimal value 10
-    ; Branch back to loop if the comparison was not equals (to zero)
-
-
-
-
+    clc     ; Increment A
+    adc #1  
+    cmp #10 ; Compare the value in A with the decimal value 10
+    bne Loop; Branch back to loop if the comparison was not equals (to zero)
 
     jmp Start
 

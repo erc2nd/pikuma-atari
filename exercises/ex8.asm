@@ -9,14 +9,12 @@
     org $F000
 
 Start:
-    ldy #10 ; Initialize the Y register with the decimal value 10
+    ldy #10     ; Initialize the Y register with the decimal value 10
 Loop:
-    ; Transfer Y to A
-    ; Store the value in A inside memory position $80+Y
-    ; Decrement Y
-    ; Branch back to "Loop" until we are done
-
-
+    tya         ; Transfer Y to A
+    sta $80,Y   ; Store the value in A inside memory position $80+Y
+    dey         ; Decrement Y
+    bpl Loop    ; return to loop if "plus" (result of last instruction was positive)
 
     jmp Start
 
